@@ -17,6 +17,9 @@ connection.connect(function (err) {
     return;
   }
   console.log("connected as id " + connection.threadId);
+  connection.query(
+    "CREATE TABLE IF NOT EXISTS burgers (id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,burger_name VARCHAR(200) NOT NULL,devoured BOOLEAN NOT NULL DEFAULT 0,date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,);"
+  );
 });
 
 // Export our MySQL connection
